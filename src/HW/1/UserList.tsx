@@ -1,13 +1,17 @@
-type AddressType = {
+/*type AddressType = {
   street: string; // ПОДПРАВЛЯЕМ any
   city: string; // ПОДПРАВЛЯЕМ any
-};
+};*/
 
 type UserType = {
   id: number;
   name: string;
   age: number;
-  address: AddressType[];
+/*  address: AddressType[];*/
+    address: {
+        street: string;
+        city: string;
+    }
   // ПРИДЕТСЯ САМОМУ)
 };
 
@@ -24,7 +28,7 @@ export const UserList = (props: UserListPropsType) => {
         {props.users.map((user) => ( // ВСЕ ТОВАРЫ В СТРАНУ ПРИЕЗЖАЮТ В КОНТЕЙНЕРАХ, А В РЕАКТЕ...
           <li key={user.id} id={`hw01-user-${user.id}`}>
             <strong>{user.name}</strong> (Age: {user.age})<strong> Address:</strong>
-            {user.address.street}, {user.address.sity}
+            {user.address.street}, {user.address.city}
           </li>
         ))}
       </ul>
